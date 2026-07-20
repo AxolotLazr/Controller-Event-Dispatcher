@@ -1,0 +1,236 @@
+{
+  "main": {
+    "id": "62c6b11c55107b12",
+    "type": "split",
+    "children": [
+      {
+        "id": "d3f8ff7220e06971",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "814b347861f18ed3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Formatted Gamepad Spec.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Formatted Gamepad Spec"
+            }
+          }
+        ]
+      },
+      {
+        "id": "bdcb10e7bd2daf35",
+        "type": "split",
+        "children": [
+          {
+            "id": "3cd08d0f83498570",
+            "type": "tabs",
+            "dimension": 58.53432282003711,
+            "children": [
+              {
+                "id": "e21c1b6c672e959b",
+                "type": "leaf",
+                "state": {
+                  "type": "graph",
+                  "state": {},
+                  "icon": "lucide-git-fork",
+                  "title": "Graph view"
+                }
+              }
+            ]
+          },
+          {
+            "id": "7093a6d35674fabd",
+            "type": "tabs",
+            "dimension": 41.465677179962896,
+            "children": [
+              {
+                "id": "cddf2718ab401ce1",
+                "type": "leaf",
+                "state": {
+                  "type": "mindmap",
+                  "state": {},
+                  "icon": "dot-network",
+                  "title": "Mind Map of Standard Formatted Gamepad Spec"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "09be2d7433ce12e7",
+    "type": "split",
+    "children": [
+      {
+        "id": "de338a96968778d2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ff69f82eaee63c6b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "c5c82267a18e5fc3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "963dee0516b971c5",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "497842057d81e915",
+    "type": "split",
+    "children": [
+      {
+        "id": "056b228aa8ea0cca",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "67bfb5becd64fd35",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Formatted Gamepad Spec.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Formatted Gamepad Spec"
+            }
+          },
+          {
+            "id": "e4f1df70d7ffb42c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Formatted Gamepad Spec.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Formatted Gamepad Spec"
+            }
+          },
+          {
+            "id": "0fdb7869183a83ea",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "265e4b186131e4c9",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "d8ea182fbdea8490",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Formatted Gamepad Spec.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Formatted Gamepad Spec"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "814b347861f18ed3",
+  "lastOpenFiles": [
+    "Standard Formatted Gamepad Spec.md",
+    "Formatted Gamepad Spec.md",
+    "Input Specs/Formatted Axis Spec.md",
+    "Input Specs/Formatted Button Spec.md",
+    "Input Specs/Formatted Stick Spec.md",
+    "Input Specs"
+  ]
+}

@@ -11,11 +11,11 @@ If you want to use this in your own projects, you can import the module from <ht
 ### Events
 * GamepadButtonInputEvent
   
-	This provides button press events, mimicking how keyboard inputs are dispatched
+	This provides button press events
 
-* GamepadTriggerInputEvent
+* GamepadAxisInputEvent
   
-	This gives triggers their own output category that supports a value range from 0.0 to 1.0
+	This is used for identified triggers, & any axes that aren't translated into sticks, this supports a value range from -1.0 to 1.0
 
 * GamepadStickInputEvent
   
@@ -23,7 +23,11 @@ If you want to use this in your own projects, you can import the module from <ht
 
 * GamepadConnectionEvent
   
-	This fills in for the "gamepadconnected" \& "gamepaddisconnected" events which the rest of my system is supposed to replace... you shouldn't need it
+	This fills in for the "gamepadconnected" \& "gamepaddisconnected" events, may be useful for splitscreen detection
 
 ### Support
-Currently there's only support for PlayStation & XBox controllers since they are the only ones I own
+Currently there's direct support for PS4, PS5, & XBox controllers, which includes console specific input naming
+
+There's also automated support for standard gamepads
+
+If you use an unknown gamepad the system will skip formatting & fallback to simply buttons & axes

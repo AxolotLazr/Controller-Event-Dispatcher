@@ -1,0 +1,74 @@
+/* Globals */
+    :root {
+        --leftStick-x: 0;
+        --leftStick-y: 0;
+        --leftStickButton: 0;
+
+        --rightStick-x: 0;
+        --rightStick-y: 0;
+        --rightStickButton: 0;
+
+        --leftTrigger: 0;
+        --rightTrigger: 0;
+        
+        --leftBumper: 0;
+        --rightBumper: 0;
+
+        --faceButtonBottom: 0;
+        --faceButtonTop: 0;
+        --faceButtonLeft: 0;
+        --faceButtonRight: 0;
+
+        --directionalPadUp: 0;
+        --directionalPadDown: 0;
+        --directionalPadLeft: 0;
+        --directionalPadRight: 0;
+
+        --leftMenuButton: 0;
+        --rightMenuButton: 0;
+        --homeButton: 0;
+        --touchpadButton: 0;
+
+        color: #fff;
+        font-family: monospace, 'Courier New', Courier;
+
+        background-color: #000;
+    }
+
+/* Elements */
+    h1, h2 {
+        box-shadow: 0px 2px #fff2;
+    }
+    h3, h4, h5, h6 {
+        margin: 4px;
+    }
+
+/* Classes */
+    .flex {
+        display: flex;
+
+        &.h {
+            flex-direction: row;
+        }
+        &.v {
+            flex-direction: column;
+        }
+        &.gap {
+            gap: 8px;
+        }
+        &.wrap {
+            flex-wrap: wrap;
+        }
+    }
+    .pad {
+        padding: 4px;
+    }
+    .outline, .joystickHolder, .joystick {
+        outline: solid 1px #fff4;
+    }
+    .grow {
+        flex-grow: 1;
+    }
+    .indent {
+        margin-left: 16px;
+    }

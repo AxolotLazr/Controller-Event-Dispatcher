@@ -5,103 +5,267 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Demo Project - Controller Event Dispatcher</title>
 
+        <link rel="stylesheet" href="Demo Project Resources/Styles/base.css">
+        <link rel="stylesheet" href="Demo Project Resources/Styles/raw_gamepad_styles.css">
+
         <script type="module" src="Modules/gamepadDispatcher.js"></script>
     </head>
     <body>
         <div>
-            <h1>General Controller</h1>
-            <div>
-                <h2>Inputs</h2>
-                <div>
-                    <div class="flex h">
-                        <div>
-                            <h3>Buttons</h3>
-                            <div class="flex v gap">
-                                <div class="flex h gap">
-                                    <div class="flex v">
-                                        <div>Bumpers</div>
-                                        <div class="rawButtonHolder bumpers flex h gap pad outline">
-                                            <div class="rawButton bumper left outline"></div>
-                                            <div class="grow"></div>
-                                            <div class="rawButton bumper right outline"></div>
-                                        </div>
-                                    </div>
-                                    <div class="flex v" style="align-items: center;">
-                                        <div>Guide Button</div>
-                                        <div class="rawButtonHolder guideButton pad outline">
-                                            <div class="rawButton guideButton outline"></div>
-                                        </div>
-                                    </div>
-                                    <div class="flex v">
-                                        <div>Menu Buttons</div>
-                                        <div class="rawButtonHolder menuButtons flex h gap pad outline">
-                                            <div class="rawButton menuButton left outline"></div>
-                                            <div class="grow"></div>
-                                            <div class="rawButton menuButton right outline"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex h gap">
-                                    <div>
-                                        <div>Directional Pad</div>
-                                        <div class="rawButtonHolder directionalPad pad outline">
-                                            <div class="rawButton outline"></div>
-                                            <div class="rawButton outline"></div>
-                                            <div class="rawButton outline"></div>
-                                            <div class="rawButton outline"></div>
-                                            <div class="rawButton outline"></div>
-                                        </div>
-                                    </div>
-                                    <div class="flex v gap">
-                                        <div>Stick Buttons</div>
-                                        <div class="rawButtonHolder stickButtons flex h gap pad outline">
-                                            <div class="rawButton stickButton left outline"></div>
-                                            <div class="grow"></div>
-                                            <div class="rawButton stickButton right outline"></div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div>Face Buttons</div>
-                                        <div class="rawButtonHolder faceButtons pad outline">
-                                            <div class="rawButton outline"></div>
-                                            <div class="rawButton outline"></div>
-                                            <div class="rawButton outline"></div>
-                                            <div class="rawButton outline"></div>
-                                        </div>
-                                    </div>
+            <h1>Gamepad Input</h1>
+            <div id="Fallback Gamepad Display" class="gamepadInputDisplay indent">
+                <h2>Fallback Gamepad Display</h2>
+                <div class="indent">
+                    <div>
+                        <h3>Buttons</h3>
+                        <div id="Fallback Gamepad Display Buttons" class="flex h gap indent" style="flex-wrap: wrap;">
+                            <div>
+                                <div>0 (Awaiting Input...)</div>
+                                <div class="rawButton outline indent"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Axes</h3>
+                        <div id="Fallback Gamepad Display Ranges" class="flex h gap indent"  style="flex-wrap: wrap;">
+                            <div>
+                                <div>0 (Awaiting Input...)</div>
+                                <div class="rawTrigger outline indent"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Sticks</h3>
+                        <div id="Fallback Gamepad Display Sticks" class="flex h gap indent"  style="flex-wrap: wrap;">
+                            <div>
+                                <div>0 (Awaiting Input...)</div>
+                                <div class="rawJoystickHolder outline indent">
+                                    <div class="rawJoystick"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="flex h gap">
-                        <div>
-                            <h3>Joysticks</h3>
-                            <div class="flex h gap outline pad">
-                                <div>
-                                    <div>Left Stick</div>
-                                    <div class="rawJoystickHolder left outline">
-                                        <div class="rawJoystick"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>Right Stick</div>
-                                    <div class="rawJoystickHolder right outline">
-                                        <div class="rawJoystick"></div>
-                                    </div>
-                                </div>
+                </div>
+            </div>
+            
+            <div id="XBox Controller" class="gamepadInputDisplay indent" hidden>
+                <h2>XBox Controller</h2>
+                <div class="indent flex h">
+                    <div class="flex v">
+                        <div class="flex h gap">
+                            <div class="flex v gap">
+                                <div class="trigger left XBox outline"></div>
+                                <div class="button bumper XBox left outline"></div>
+                            </div>
+                            <div class="grow"></div>
+                            <div class="flex v gap">
+                                <div class="trigger right XBox outline"></div>
+                                <div class="button bumper XBox right outline"></div>
                             </div>
                         </div>
-                        <div>
-                            <h3>Triggers</h3>
-                            <div class="flex h gap outline pad">
-                                <div>
-                                    <div>Left Trigger</div>
-                                    <div class="rawTrigger left outline"></div>
+                        <div style="height: 16px;"></div>
+                        <div class="flex h gap" style="align-items: center;">
+                            <div class="joystickHolder left outline">
+                                <div class="button stickButton left joystick"></div>
+                            </div>
+                            <div class="flex v" style="width: 128px;">
+                                <div class="flex v" style="align-items: center;">
+                                    <div class="buttonHolder homeButton pad outline">
+                                        <div class="button homeButton XBox outline"></div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <div>Right Trigger</div>
-                                    <div class="rawTrigger right outline"></div>
+                                <div class="buttonHolder menuButtons flex h gap pad">
+                                    <div class="button menuButton left outline"></div>
+                                    <div style="width: 32px;"></div>
+                                    <div class="button menuButton right outline"></div>
                                 </div>
+                            </div>
+                            <div class="buttonHolder faceButtons XBox pad">
+                                <div class="button outline">Y</div>
+                                <div class="button outline">A</div>
+                                <div class="button outline">X</div>
+                                <div class="button outline">B</div>
+                            </div>
+                        </div>
+                        <div class="flex h" style="justify-content: center; align-items: start;">
+                            <div class="buttonHolder directionalPad outline">
+                                <div class="button outline"></div>
+                                <div class="button outline"></div>
+                                <div class="button outline"></div>
+                                <div class="button outline"></div>
+                                <div class="button outline"></div>
+                            </div>
+                            <div style="width: 64px;"></div>
+                            <div class="joystickHolder right outline">
+                                <div class="button stickButton right joystick"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="DualSense Controller" class="gamepadInputDisplay indent" hidden>
+                <h2>PlayStation Controller</h2>
+                <div class="indent flex h">
+                    <div class="flex v">
+                        <div class="flex h gap">
+                            <div class="flex v gap">
+                                <div class="trigger left PlayStation outline"></div>
+                                <div class="button bumper PlayStation left outline"></div>
+                            </div>
+                            <div class="grow"></div>
+                            <div class="flex v gap">
+                                <div class="trigger right PlayStation outline"></div>
+                                <div class="button bumper PlayStation right outline"></div>
+                            </div>
+                        </div>
+                        <div style="height: 16px;"></div>
+                        <div class="flex h gap gap" style="align-items: end;">
+                            <div class="buttonHolder directionalPad">
+                                <div class="button outline"></div>
+                                <div class="button outline"></div>
+                                <div class="button outline"></div>
+                                <div class="button outline"></div>
+                                <div class="button outline"></div>
+                            </div>
+                            <div class="flex v" style="width: 128px;">
+                                <div class="buttonHolder menuButtons flex h gap pad" style="align-items: start;">
+                                    <div class="button menuButton PlayStation left outline"></div>
+                                    <div class="button touchPad PlayStation outline"></div>
+                                    <div class="button menuButton PlayStation right outline"></div>
+                                </div>
+                            </div>
+                            <div class="buttonHolder faceButtons PlayStation pad">
+                                <div class="button outline">△</div>
+                                <div class="button outline">✖</div>
+                                <div class="button outline">◻</div>
+                                <div class="button outline">◯</div>
+                            </div>
+                        </div>
+                        <div class="flex h" style="justify-content: center; align-items: center;">
+                            <div class="joystickHolder left outline">
+                                <div class="button stickButton left joystick"></div>
+                            </div>
+                            <div class="flex v" style="width: 80px; align-items: center; justify-content: center;">
+                                <div class="buttonHolder homeButton pad">
+                                    <div class="button homeButton PlayStation">PS</div>
+                                </div>
+                            </div>
+                            <div class="joystickHolder right outline">
+                                <div class="button stickButton right joystick"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="DualShock Controller" class="gamepadInputDisplay indent" hidden>
+                <h2>PlayStation Controller</h2>
+                <div class="indent flex h">
+                    <div class="flex v">
+                        <div class="flex h gap">
+                            <div class="flex v gap">
+                                <div class="trigger left PlayStation outline"></div>
+                                <div class="button bumper PlayStation left outline"></div>
+                            </div>
+                            <div class="grow"></div>
+                            <div class="flex v gap">
+                                <div class="trigger right PlayStation outline"></div>
+                                <div class="button bumper PlayStation right outline"></div>
+                            </div>
+                        </div>
+                        <div style="height: 16px;"></div>
+                        <div class="flex h gap gap" style="align-items: end;">
+                            <div class="buttonHolder directionalPad">
+                                <div class="button outline"></div>
+                                <div class="button outline"></div>
+                                <div class="button outline"></div>
+                                <div class="button outline"></div>
+                                <div class="button outline"></div>
+                            </div>
+                            <div class="flex v" style="width: 128px;">
+                                <div class="buttonHolder menuButtons flex h gap pad" style="align-items: start;">
+                                    <div class="button menuButton PlayStation left outline"></div>
+                                    <div class="button touchPad PlayStation outline"></div>
+                                    <div class="button menuButton PlayStation right outline"></div>
+                                </div>
+                            </div>
+                            <div class="buttonHolder faceButtons PlayStation pad">
+                                <div class="button outline">△</div>
+                                <div class="button outline">✖</div>
+                                <div class="button outline">◻</div>
+                                <div class="button outline">◯</div>
+                            </div>
+                        </div>
+                        <div class="flex h" style="justify-content: center; align-items: center;">
+                            <div class="joystickHolder left outline">
+                                <div class="button stickButton left joystick"></div>
+                            </div>
+                            <div class="flex v" style="width: 80px; align-items: center; justify-content: center;">
+                                <div class="buttonHolder homeButton pad">
+                                    <div class="button homeButton PlayStation">PS</div>
+                                </div>
+                            </div>
+                            <div class="joystickHolder right outline">
+                                <div class="button stickButton right joystick"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h1>Gamepad Info</h1>
+            <div class="indent flex h gap">
+                <div>
+                    <h3>From Latest Input</h3>
+                    <div class="pad gap indent outline">
+                        <div class="flex h pad gap wrap">
+                            <div>
+                                <div>Gamepad Slot</div>
+                                <div class="gamepadSlotDisplayer indent outline pad">Awaiting Input</div>
+                            </div>
+                            <div>
+                                <div>Gamepad ID</div>
+                                <div class="gamepadIdDisplayer indent outline pad">Awaiting Input</div>
+                            </div>
+                        </div>
+                        <div class="flex h pad gap wrap">
+                            <div>
+                                <div>Gamepad Type</div>
+                                <div class="gamepadTypeDisplayer indent outline pad">Awaiting Input</div>
+                            </div>
+                            <div>
+                                <div>Gamepad Type Reason</div>
+                                <div class="gamepadTypeReasonDisplayer indent outline pad">Awaiting Input</div>
+                            </div>
+                            <div>
+                                <div>Local Name Set</div>
+                                <div class="localNameSetDisplayer indent outline pad">Awaiting Input</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pad gap indent outline">
+                        <div class="flex h pad gap wrap">
+                            <div>
+                                <div>Input Name</div>
+                                <div class="inputNameDisplayer indent outline pad">Awaiting Input</div>
+                            </div>
+                            <div>
+                                <div>Local Input Name</div>
+                                <div class="localInputNameDisplayer indent outline pad">Awaiting Input</div>
+                            </div>
+                        </div>
+                        <div class="flex h pad gap wrap">
+                            <div>
+                                <div>Input ID</div>
+                                <div class="inputNumberDisplayer indent outline pad">Awaiting Input</div>
+                            </div>
+                            <div>
+                                <div>Input Value</div>
+                                <div class="inputValueDisplayer indent outline pad">Awaiting Input</div>
+                            </div>
+                            <div>
+                                <div>Secondary Input Value (buttons: value_raw, sticks: value_rounded)</div>
+                                <div class="rawInputValueDisplayer indent outline pad">Awaiting Input</div>
                             </div>
                         </div>
                     </div>
@@ -110,68 +274,8 @@
         </div>
 
         <style>
-            :root {
-                --leftStick-x: 0;
-                --leftStick-y: 0;
-                --leftStickButton: 0;
-
-                --rightStick-x: 0;
-                --rightStick-y: 0;
-                --rightStickButton: 0;
-
-                --leftTrigger: 0;
-                --rightTrigger: 0;
-                
-                --leftBumper: 0;
-                --rightBumper: 0;
-
-                --faceButtonBottom: 0;
-                --faceButtonTop: 0;
-                --faceButtonLeft: 0;
-                --faceButtonRight: 0;
-
-                --directionalPadUp: 0;
-                --directionalPadDown: 0;
-                --directionalPadLeft: 0;
-                --directionalPadRight: 0;
-
-                --leftMenuButton: 0;
-                --rightMenuButton: 0;
-                --guideButton: 0;
-                --touchpadButton: 0;
-
-                color: #fff;
-                font-family: monospace, 'Courier New', Courier;
-
-                background-color: #000;
-            }
-
-            .flex {
-                display: flex;
-
-                &.h {
-                    flex-direction: row;
-                }
-                &.v {
-                    flex-direction: column;
-                }
-                &.gap {
-                    gap: 8px;
-                }
-            }
-            .pad {
-                padding: 4px;
-            }
-            .outline {
-                outline: solid 1px #fff8;
-            }
-            .grow {
-                flex-grow: 1;
-            }
-
-            .rawJoystickHolder {
-                --value-x: 0;
-                --value-y: 0;
+            .trigger {
+                --value: 0;
 
                 display: flex;
                 align-items: center;
@@ -180,64 +284,7 @@
                 aspect-ratio: 1;
 
                 position: relative;
-                width: 128px;
-                background-color: #fff1;
-                background-image:
-                    linear-gradient( 90deg,
-                        #0000 calc(50% - 0.5px), 
-                        #fff2 calc(50% - 0.5px) calc(50% + 0.5px), 
-                        #0000 calc(50% + 0.5px) 100% 
-                    ),
-                    linear-gradient(
-                        #0000 calc(50% - 0.5px), 
-                        #fff2 calc(50% - 0.5px) calc(50% + 0.5px), 
-                        #0000 calc(50% + 0.5px) 100% 
-                    ),
-                    linear-gradient( 90deg,
-                        #0000 calc(50% - 0.5px + (50% * var(--value-x))), 
-                        #fff6 calc(50% - 0.5px + (50% * var(--value-x))) calc(50% + 0.5px + (50% * var(--value-x))), 
-                        #0000 calc(50% + 0.5px + (50% * var(--value-x))) 100% 
-                    ),
-                    linear-gradient(
-                        #0000 calc(50% - 0.5px + (50% * var(--value-y))), 
-                        #fff6 calc(50% - 0.5px + (50% * var(--value-y))) calc(50% + 0.5px + (50% * var(--value-y))), 
-                        #0000 calc(50% + 0.5px + (50% * var(--value-y))) 100% 
-                    )
-                ;
-
-                &.left {
-                    --value-x: var(--leftStick-x);
-                    --value-y: var(--leftStick-y);
-                }
-                &.right {
-                    --value-x: var(--rightStick-x);
-                    --value-y: var(--rightStick-y);
-                }
-            }
-                .rawJoystick {
-                    aspect-ratio: 1;
-
-                    position: relative;
-                    left: calc(50% * var(--value-x));
-                    top: calc(50% * var(--value-y));
-                    width: 4px;
-                    background-color: #fff;
-
-                    border-radius: 100%;
-
-                    outline: solid 1px #000;
-                }
-            .rawTrigger {
-                --value: 0;
-
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                aspect-ratio: 1/3;
-
-                position: relative;
-                height: 128px;
+                width: 64px;
                 background-color: #fff1;
                 background-image:
                     linear-gradient(0deg,
@@ -252,28 +299,112 @@
                 }
                 &.right {
                     --value: var(--rightTrigger);
+
+                    align-self: flex-end;
                 }
-            }
-            .rawButtonHolder {
-                position: relative;
 
-                &.directionalPad, &.faceButtons {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    aspect-ratio: 1;
-                    
-                    height: 96px;
-
-                    >* {
-                        position: absolute;
+                &.XBox {
+                    &.left {
+                        border-radius: 100% 8px 4px 4px;
+                    }
+                    &.right {
+                        border-radius: 8px 100% 4px 4px;
                     }
                 }
-                &.directionalPad {
+                &.PlayStation {
+                    &.left {
+                        border-radius: 60% 40% 4px 4px;
+                    }
+                    &.right {
+                        border-radius: 40% 60% 4px 4px;
+                    }
+                }
+            }
+
+            .buttonHolder {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                aspect-ratio: 1;
+                
+                &.faceButtons.XBox {
+                    color: #000;
+                    
+                    height: 64px;
+
                     border-radius: 50%;
 
                     >* {
+                        height: 24px;
+                        position: absolute;
+
+                        border-radius: 50%;
+                    }
+                    >:nth-child(1) {
+                        --value: var(--faceButtonTop);
+
+                        transform: translateY(-100%);
+                    }
+                    >:nth-child(2) {
+                        --value: var(--faceButtonBottom);
+
+                        transform: translateY(100%);
+                    }
+                    >:nth-child(3) {
+                        --value: var(--faceButtonLeft);
+
+                        transform: translateX(-100%);
+                    }
+                    >:nth-child(4) {
+                        --value: var(--faceButtonRight);
+
+                        transform: translateX(100%);
+                    }
+                }
+                &.faceButtons.PlayStation {
+                    color: #444;
+                    
+                    height: 64px;
+
+                    border-radius: 50%;
+
+                    >* {
+                        height: 24px;
+                        position: absolute;
+
+                        border-radius: 50%;
+                    }
+                    >:nth-child(1) {
+                        --value: var(--faceButtonTop);
+
+                        transform: translateY(-100%);
+                    }
+                    >:nth-child(2) {
+                        --value: var(--faceButtonBottom);
+
+                        transform: translateY(100%);
+                    }
+                    >:nth-child(3) {
+                        --value: var(--faceButtonLeft);
+
+                        transform: translateX(-100%);
+                    }
+                    >:nth-child(4) {
+                        --value: var(--faceButtonRight);
+
+                        transform: translateX(100%);
+                    }
+                }
+                &.directionalPad {
+                    height: 64px;
+
+                    border-radius: 50%;
+
+                    >* {
+                        height: 20px;
+                        position: absolute;
+
                         border-radius: 10%;
                     }
                     >:last-child {
@@ -302,48 +433,14 @@
                         transform: translateX(90%);
                     }
                 }
-                &.faceButtons {
-                    border-radius: 4px;
-
-                    >* {
-                        border-radius: 50%;
-                    }
-                    >:nth-child(1) {
-                        --value: var(--faceButtonBottom);
-
-                        transform: translateY(90%);
-                    }
-                    >:nth-child(2) {
-                        --value: var(--faceButtonRight);
-
-                        transform: translateX(90%);
-                    }
-                    >:nth-child(3) {
-                        --value: var(--faceButtonLeft);
-
-                        transform: translateX(-90%);
-                    }
-                    >:nth-child(4) {
-                        --value: var(--faceButtonTop);
-
-                        transform: translateY(-90%);
-                    }
-
-                }
-                &.stickButtons {
-                    border-radius: 8px;
-                }
-                &.bumpers {
-                    border-radius: 4px;
-                }
-                &.guideButton {
+                &.homeButton {
                     border-radius: 50%;
                 }
                 &.menuButtons {
-                    border-radius: 100px;
+                    aspect-ratio: unset;
                 }
             }
-                .rawButton {
+                .button {
                     --value: 0;
 
                     display: flex;
@@ -353,14 +450,13 @@
                     aspect-ratio: 1;
 
                     position: relative;
-                    height: 32px;
                     background-color: #fff1;
                     background-image:
                         linear-gradient(0deg,
                             color-mix(in oklab, #0000, #fff8 calc(100% * var(--value))) 0% 100%
                         )
                     ;
-
+                    
                     &.stickButton {
                         border-radius: 50%;
 
@@ -372,7 +468,7 @@
                         }
                     }
                     &.menuButton {
-                        height: 24px;
+                        height: 16px;
 
                         border-radius: 50%;
 
@@ -383,11 +479,17 @@
                             --value: var(--rightMenuButton);
                         }
                     }
-                    &.bumper {
+                    &.touchPad {
+                        --value: var(--touchpadButton);
+
                         aspect-ratio: 2;
 
-                        border-radius: 4px;
-
+                        height: 64px;
+                    }
+                    &.homeButton {
+                        --value: var(--homeButton);
+                    }
+                    &.bumper {
                         &.left {
                             --value: var(--leftBumper);
                         }
@@ -395,45 +497,284 @@
                             --value: var(--rightBumper);
                         }
                     }
-                    &.guideButton {
-                        --value: var(--guideButton);
 
-                        border-radius: 50%;
+                    &.XBox {
+                        &.homeButton {
+                            height: 36px;
 
-                        height: 40px;
+                            border-radius: 50%;
+                        }
+                        &.bumper {
+                            aspect-ratio: 7/3;
+
+                            width: 80px;
+
+                            &.left {
+                                border-radius: 4px 4px 8px 80%;
+                            }
+                            &.right {
+                                border-radius: 4px 4px 80% 8px;
+                            }
+                        }
                     }
+                    &.PlayStation {
+                        &.menuButton {
+                            aspect-ratio: 1/2;
+
+                            border-radius: 100px;
+                        }
+                        &.touchPad {
+                            border-radius: 4px 4px 16px 16px;
+                        }
+                        &.homeButton {
+                            color: color-mix(in oklab, #fff2, #fff8 calc(100% * var(--value)));
+                            
+                            background-color: #0000;
+                            background-image: none;
+                        }
+                        &.bumper {
+                            aspect-ratio: 2;
+
+                            width: 64px;
+
+                            &.left {
+                                border-radius: 4px 4px 8px 16px;
+                            }
+                            &.right {
+                                border-radius: 4px 4px 16px 8px;
+                            }
+                        }
+                    }
+                }
+
+            .joystickHolder {
+                --value-x: 0;
+                --value-y: 0;
+
+                --magnitude: calc(abs(var(--value-x)) + abs(var(--value-y)));
+
+                perspective: 1024px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                aspect-ratio: 1;
+                
+                height: 56px;
+                background-image: radial-gradient(#fff2 10%, #fff1, #0000 90% 100%);
+
+                border-radius: 50%;
+
+                margin: 4px;
+
+                &.left {
+                    --value-x: var(--leftStick-x);
+                    --value-y: var(--leftStick-y);
+                }
+                &.right {
+                    --value-x: var(--rightStick-x);
+                    --value-y: var(--rightStick-y);
+                }
+            }
+                .joystick {
+                    aspect-ratio: 1;
+
+                    position: relative;
+                    left: 0px;
+                    top: 0px;
+                    width: 48px;
+
+                    border-radius: 100%;
+
+                    box-shadow: 0px 0px 16px #0008;
+
+                    transform: 
+                        translateZ(-48px)
+                        rotateY(calc(30deg * var(--value-x)))
+                        rotateX(calc(-30deg * var(--value-y)))
+                        translateZ(48px)
+                        translateZ(calc(-8px * var(--value)))
+                    ;
                 }
         </style>
 
         <script>
-            let root = document.querySelector(':root');
+            // Variables
+                let root = document.querySelector(':root');
 
-            document.addEventListener('gamepadConnection', function (e) {
-                console.log(e)
-            });
-            document.addEventListener('gamepadButtonInput', function (e) {
-                console.log(e);
+                let current_gamepadInput_display = '';
 
-                root.style.setProperty('--' + e.name, (e.value ? 1 : 0))
-            });
-            document.addEventListener('gamepadTriggerInput', function (e) {
-                if (e.name.includes('left')) {
-                    root.style.setProperty('--leftTrigger', e.value)
+            // Contents
+                document.addEventListener('gamepadConnection', function (e) {
+                    console.log(e)
+                });
+                
+                document.addEventListener('gamepadButtonInput', function (e) {
+                    root.style.setProperty('--' + e.name, (e.value ? 1 : 0))
+
+                    updateGamepadInputDisplay(e);
+                    updateControllerInfoDisplays(e);
+                });
+                document.addEventListener('gamepadAxisInput', function (e) {
+                    if (e.name.includes('left')) {
+                        root.style.setProperty('--leftTrigger', e.value)
+                    };
+                    if (e.name.includes('right')) {
+                        root.style.setProperty('--rightTrigger', e.value)
+                    };
+
+                    updateGamepadInputDisplay(e);
+                    updateControllerInfoDisplays(e);
+                });
+                document.addEventListener('gamepadStickInput', function (e) {
+                    if (e.name.includes('left')) {
+                        root.style.setProperty('--leftStick-x', e.value_secondary[0])
+                        root.style.setProperty('--leftStick-x-raw', e.value[0])
+                        root.style.setProperty('--leftStick-y', e.value_secondary[1])
+                        root.style.setProperty('--leftStick-y-raw', e.value[1])
+                    };
+                    if (e.name.includes('right')) {
+                        root.style.setProperty('--rightStick-x', e.value_secondary[0])
+                        root.style.setProperty('--rightStick-x-raw', e.value[0])
+                        root.style.setProperty('--rightStick-y', e.value_secondary[1])
+                        root.style.setProperty('--rightStick-y-raw', e.value[1])
+                    };
+
+                    updateGamepadInputDisplay(e);
+                    updateControllerInfoDisplays(e);
+                });
+
+            // Functions
+                function updateGamepadInputDisplay (e) {
+                    let gamepad_info = e.gamepad.info;
+
+                    let gamepadInputDisplay_elements = document.getElementsByClassName('gamepadInputDisplay')
+
+                    for (let elementNum = 0; elementNum < gamepadInputDisplay_elements.length; elementNum++) {
+                        gamepadInputDisplay_elements[elementNum].hidden = 'hidden';
+                    };
+
+                    current_gamepadInput_display = gamepad_info.type;
+                    let gamepad_input_display_element = document.getElementById(current_gamepadInput_display);
+
+                    if (gamepad_input_display_element == undefined) {
+                        current_gamepadInput_display = 'Fallback Gamepad Display';
+                        gamepad_input_display_element = document.getElementById(current_gamepadInput_display);
+                    };
+
+                    gamepad_input_display_element.hidden = '';
                 };
-                if (e.name.includes('right')) {
-                    root.style.setProperty('--rightTrigger', e.value)
+                
+                function updateFallbackGamepadDisplay (e) {
+                    let gamepad_inputs = e.gamepad.inputs;
+
+                    if (current_gamepadInput_display == 'Fallback Gamepad Display') {
+                        let fallback_gamepadDisplay_buttons = document.getElementById('Fallback Gamepad Display Buttons');
+                        let fallback_gamepadDisplay_ranges = document.getElementById('Fallback Gamepad Display Ranges');
+                        let fallback_gamepadDisplay_sticks = document.getElementById('Fallback Gamepad Display Sticks');
+
+                        let gamepad_button_count = gamepad_inputs.buttons.length;
+                        let gamepad_range_count = gamepad_inputs.ranges.length;
+                        let gamepad_stick_count = gamepad_inputs.sticks.length;
+
+                        if (fallback_gamepadDisplay_buttons.children.length != gamepad_button_count) {
+                            let template_element = fallback_gamepadDisplay_buttons.children[0].cloneNode(true);
+
+                            fallback_gamepadDisplay_buttons.innerHTML = '';
+
+                            for (let elementNum = 0; elementNum < gamepad_button_count; elementNum++) {
+                                let newElement = template_element.cloneNode(true);
+                                
+                                fallback_gamepadDisplay_buttons.appendChild(newElement);
+
+                                fallback_gamepadDisplay_buttons.lastElementChild.firstElementChild.innerHTML = elementNum;
+                            };
+                        };
+                        
+                        if (fallback_gamepadDisplay_ranges.children.length != gamepad_range_count) {
+                            let template_element = fallback_gamepadDisplay_ranges.children[0].cloneNode(true);
+
+                            fallback_gamepadDisplay_ranges.innerHTML = '';
+                            
+                            for (let elementNum = 0; elementNum < gamepad_range_count; elementNum++) {
+                                let newElement = template_element.cloneNode(true);
+                                
+                                fallback_gamepadDisplay_ranges.appendChild(newElement);
+
+                                fallback_gamepadDisplay_ranges.lastElementChild.firstElementChild.innerHTML = elementNum;
+                            };
+                        };
+                        
+                        if (fallback_gamepadDisplay_sticks.children.length != gamepad_stick_count) {
+                            let template_element = fallback_gamepadDisplay_sticks.children[0].cloneNode(true);
+
+                            fallback_gamepadDisplay_sticks.innerHTML = '';
+                            
+                            for (let elementNum = 0; elementNum < gamepad_stick_count; elementNum++) {
+                                let newElement = template_element.cloneNode(true);
+                                
+                                fallback_gamepadDisplay_sticks.appendChild(newElement);
+
+                                fallback_gamepadDisplay_sticks.lastElementChild.firstElementChild.innerHTML = elementNum;
+                            };
+                        };
+                    
+                        for (let elementNum = 0; elementNum < gamepad_button_count; elementNum++) {
+                            fallback_gamepadDisplay_buttons.children[elementNum].children[1].style.setProperty('--value', gamepad_inputs.buttons[elementNum].value_raw)
+                        };
+                        for (let elementNum = 0; elementNum < gamepad_range_count; elementNum++) {
+                            fallback_gamepadDisplay_ranges.children[elementNum].children[1].style.setProperty('--value', gamepad_inputs.ranges[elementNum].value_raw)
+                        };
+                        for (let elementNum = 0; elementNum < gamepad_stick_count; elementNum++) {
+                            fallback_gamepadDisplay_sticks.children[elementNum].children[1].style.setProperty('--value-x', gamepad_inputs.sticks[elementNum].value_raw[0])
+                            fallback_gamepadDisplay_sticks.children[elementNum].children[1].style.setProperty('--value-y', gamepad_inputs.sticks[elementNum].value_raw[1])
+                        };
+                    };
                 };
-            });
-            document.addEventListener('gamepadStickInput', function (e) {
-                if (e.name.includes('left')) {
-                    root.style.setProperty('--leftStick-x', e.value[0])
-                    root.style.setProperty('--leftStick-y', e.value[1])
+
+                function updateControllerInfoDisplays (e) {
+                    let gamepad_info = e.gamepad.info;
+                    let input_info = e;
+
+                    let infoDisplayer_classes = [
+                        'gamepadSlotDisplayer',
+                        'gamepadIdDisplayer',
+                        'gamepadTypeDisplayer',
+                        'gamepadTypeReasonDisplayer',
+                        'localNameSetDisplayer',
+
+                        'inputNumberDisplayer',
+                        'inputNameDisplayer',
+                        'localInputNameDisplayer',
+                        'inputValueDisplayer',
+                        'rawInputValueDisplayer',
+                    ];
+                    let infoMap = [
+                        gamepad_info.slot,
+                        gamepad_info.id,
+                        gamepad_info.type,
+                        gamepad_info.type_reason,
+                        gamepad_info.local_name_set,
+
+                        e.id,
+                        e.name,
+                        e.name_local,
+                        e.value,
+                        e.value_secondary,
+                    ];
+
+                    for (let class_num = 0; class_num < infoDisplayer_classes.length; class_num++) {
+                        let infoDisplayer_elements = document.getElementsByClassName(infoDisplayer_classes[class_num]);
+
+                        for (let element_num = 0; element_num < infoDisplayer_elements.length; element_num++) {
+                            infoDisplayer_elements[element_num].textContent = infoMap[class_num];
+                        };
+                    };
+
+
+                    updateFallbackGamepadDisplay(e);
                 };
-                if (e.name.includes('right')) {
-                    root.style.setProperty('--rightStick-x', e.value[0])
-                    root.style.setProperty('--rightStick-y', e.value[1])
-                };
-            });
         </script>
     </body>
 </html>
